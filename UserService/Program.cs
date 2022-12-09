@@ -8,14 +8,14 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("AZURE")));
+builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<UserContext>();
-    db.Database.Migrate();
+    var ctx = scope.ServiceProvider.GetRequiredService<UserContext>();
+    ctx.Database.Migrate();
 }
 
 app.MapPost("/register", async (User user, UserContext ctx) =>

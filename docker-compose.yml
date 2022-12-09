@@ -1,8 +1,60 @@
 version: "3.9"
 
 services:
-  userservice:
-    image: sebatiang9912/userservice
+  userdb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
     restart: always
     ports:
-      - 3050:80
+      - 1433:1433
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: Passw0rd!
+    volumes:
+      - ./volumes/UserDb:/var/opt/mssql/data
+
+  loandb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    ports:
+      - 1434:1433
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: Passw0rd!
+    volumes:
+      - ./volumes/LoanDb:/var/opt/mssql/data
+
+  librarydb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    ports:
+      - 1435:1433
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: Passw0rd!
+    volumes: 
+      - ./volumes/LibraryDb:/var/opt/mssql/data
+
+  userservice:
+    image: userservice
+    restart: always
+    ports:
+      - 3000:80
+    depends_on:
+      - userdb
+
+  loanservice:
+    image: loanservice
+    restart: always
+    ports:
+      - 3001:80
+      - 3005:123
+    depends_on:
+      - loandb
+
+  libraryservice:
+    image: libraryservice
+    restart: always
+    ports:
+      - 3002:80
+    depends_on:
+      - librarydb

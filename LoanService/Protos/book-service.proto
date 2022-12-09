@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "LoanService.Protos";
+
+message BookRequest {
+    string bookId = 1;
+}
+
+message BookResponse {
+    string id = 1;
+    string title = 2;
+    bool loaned = 3;
+}
+
+service GetBookService {
+    rpc GetBook(BookRequest) returns (BookResponse);
+}
