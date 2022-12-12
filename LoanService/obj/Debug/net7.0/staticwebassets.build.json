@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gacFMJILTC1L1V3YMJYHP5YM5FCwfYK1kYbqkpMrrHI=",
+  "Source": "LoanService",
+  "BasePath": "_content/LoanService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
