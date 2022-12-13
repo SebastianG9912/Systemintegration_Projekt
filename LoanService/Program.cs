@@ -50,8 +50,11 @@ app.UseAuthorization();
 
 app.MapPost("/loan/{bookId}", async (string bookId, LoanContext ctx, LibraryClient libraryClient, HttpContext httpContext) =>
 {
+    Console.WriteLine("ENTERED");
     using var channel = GrpcChannel.ForAddress("http://libraryservice");
+    Console.WriteLine("CHANNEL SUCCESS");
     var client = new GetBookService.GetBookServiceClient(channel);
+    Console.WriteLine("GETBOOKSERVICECLIENT SUCCESS");
 
     var bookRequest = new BookRequest
     {
@@ -59,6 +62,7 @@ app.MapPost("/loan/{bookId}", async (string bookId, LoanContext ctx, LibraryClie
     };
 
     var book = await client.GetBookAsync(bookRequest);
+    Console.WriteLine("GETBOOKASYNC SUCCESS");
 
     if (book == null)
     {
@@ -66,7 +70,7 @@ app.MapPost("/loan/{bookId}", async (string bookId, LoanContext ctx, LibraryClie
     }
 
     var userId = httpContext.User.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.NameIdentifier).Value;
-
+    Console.WriteLine("USERIDGET SUCCESS");
     if (userId == null)
     {
         return Results.BadRequest("Bad token");
