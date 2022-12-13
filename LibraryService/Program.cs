@@ -13,7 +13,6 @@ builder.Services.AddDbContext<LibraryContext>(opt => opt.UseSqlServer(builder.Co
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
-
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateActor = true,
