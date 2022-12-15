@@ -7,5 +7,6 @@ namespace LoanService
     {
         public LoanContext(DbContextOptions<LoanContext> options) : base(options) { }
         public DbSet<Loan> Loans => Set<Loan>();
+
     }
 }
