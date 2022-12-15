@@ -82,6 +82,11 @@ app.MapPost("/loan/{bookId}", async (string bookId, LoanContext ctx, LibraryClie
         UserId = userId,
         BookId = bookId
     };
+    var loandbook = await ctx.Loans.FirstOrDefaultAsync(loan => loan.BookId == bookId);
+    if (loandbook != null)
+    {
+        return Results.BadRequest("Book is already loaned");
+    };
 
     await ctx.Loans.AddAsync(loan);
     await ctx.SaveChangesAsync();
