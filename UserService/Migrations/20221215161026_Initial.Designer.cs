@@ -12,7 +12,7 @@ using UserService;
 namespace UserService.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20221212091951_Initial")]
+    [Migration("20221215161026_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -30,6 +30,9 @@ namespace UserService.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Blacklisted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Email")
                         .IsRequired()

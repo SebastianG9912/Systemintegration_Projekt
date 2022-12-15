@@ -72,6 +72,11 @@ app.MapPost("/login", async (UserLogin userLogin, UserContext ctx) =>
         return Results.BadRequest("User not found. Check email or/and password");
     }
 
+    if (user.Blacklisted)
+    {
+        return Results.Forbid();
+    }
+
     var secretKey = builder.Configuration["Jwt:Key"];
 
     if (secretKey == null)
@@ -128,6 +133,31 @@ app.MapPut("/user/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefault
     await ctx.SaveChangesAsync();
 
     return Results.Ok($"Updated properties of user with email: {user.Email}");
+});
+
+app.MapPut("/blacklist/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")] async (string userId, UserContext ctx) =>
+{
+    var user = await ctx.Users.FirstOrDefaultAsync(u => u.Id.ToString().Equals(userId));
+
+    if (user == null)
+    {
+        return Results.BadRequest($"User with id: {userId} does not exist.");
+    }
+
+    var responseText = $"User with email: {user.Email} has been blacklisted!";
+    if (user.Blacklisted)
+    {
+        user.Blacklisted = false;
+        responseText = $"User with email: {user.Email} has been removed from blacklist!";
+    }
+    else
+    {
+        user.Blacklisted = true;
+    }
+
+    await ctx.SaveChangesAsync();
+
+    return Results.Ok(responseText);
 });
 
 app.Run();
