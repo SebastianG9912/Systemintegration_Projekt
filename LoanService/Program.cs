@@ -89,14 +89,23 @@ app.MapPost("/loan/{bookId}", async (string bookId, LoanContext ctx, LibraryClie
     return Results.Created($"/loan/{loan.Id}", "Book has been loaned");
 });
 
-app.MapPost("/return/{id}", async (LoanContext ctx, LibraryClient libraryClient) =>
+app.MapPost("/return/{id}", async (string id, LoanContext ctx, LibraryClient libraryClient) =>
 {
 
+    var loan = await ctx.Loans.FirstOrDefaultAsync(u => u.BookId == id);
 
+    if (loan == null) return Results.NotFound("You have not loaned this book.");
 
+    ctx.Loans.Remove(loan);
+    // using var channel = GrpcChannel.ForAddress("http://libraryservice");
+    // var client = new GetBookService.GetBookServiceClient(channel);
+    // var book = await client.GetBookAsync(bookRequest);
 
+    // await book.Loans.AddAsync(loan);
 
-    return Results.Ok();
+    await ctx.SaveChangesAsync();
+
+    return Results.Ok("Book has been returned");
 });
 
 
