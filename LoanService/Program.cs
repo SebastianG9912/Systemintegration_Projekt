@@ -89,5 +89,17 @@ app.MapPost("/loan/{bookId}", async (string bookId, LoanContext ctx, LibraryClie
     return Results.Created($"/loan/{loan.Id}", "Book has been loaned");
 });
 
+app.MapPost("/return/{id}", async (LoanContext ctx, LibraryClient libraryClient) =>
+{
+
+
+
+
+
+    return Results.Ok();
+});
+
+
+
 app.Run();
 
