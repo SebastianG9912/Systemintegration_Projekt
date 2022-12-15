@@ -1,6 +1,3 @@
-using LoanService.Model;
-
-
 namespace LibraryService.Model
 {
     public class Book
@@ -8,6 +5,6 @@ namespace LibraryService.Model
         public Guid Id { get; set; }
         public string Title { get; set; }
 
-        public List<Loan> Loans { get; set; } = new List<Loan>();
+        public bool Loaned { get; set; }
     }
 }
