@@ -25,15 +25,15 @@ namespace LibraryService.Protos {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlQcm90b3MvYm9vay1zZXJ2aWNlLnByb3RvIh0KC0Jvb2tSZXF1ZXN0Eg4K",
-            "BmJvb2tJZBgBIAEoCSI5CgxCb29rUmVzcG9uc2USCgoCaWQYASABKAkSDQoF",
-            "dGl0bGUYAiABKAkSDgoGbG9hbmVkGAMgASgIMjgKDkdldEJvb2tTZXJ2aWNl",
-            "EiYKB0dldEJvb2sSDC5Cb29rUmVxdWVzdBoNLkJvb2tSZXNwb25zZUIYqgIV",
-            "TGlicmFyeVNlcnZpY2UuUHJvdG9zYgZwcm90bzM="));
+            "BmJvb2tJZBgBIAEoCSIpCgxCb29rUmVzcG9uc2USCgoCaWQYASABKAkSDQoF",
+            "dGl0bGUYAiABKAkyOAoOR2V0Qm9va1NlcnZpY2USJgoHR2V0Qm9vaxIMLkJv",
+            "b2tSZXF1ZXN0Gg0uQm9va1Jlc3BvbnNlQhiqAhVMaWJyYXJ5U2VydmljZS5Q",
+            "cm90b3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::LibraryService.Protos.BookRequest), global::LibraryService.Protos.BookRequest.Parser, new[]{ "BookId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LibraryService.Protos.BookResponse), global::LibraryService.Protos.BookResponse.Parser, new[]{ "Id", "Title", "Loaned" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::LibraryService.Protos.BookResponse), global::LibraryService.Protos.BookResponse.Parser, new[]{ "Id", "Title" }, null, null, null, null)
           }));
     }
     #endregion
@@ -265,7 +265,6 @@ namespace LibraryService.Protos {
     public BookResponse(BookResponse other) : this() {
       id_ = other.id_;
       title_ = other.title_;
-      loaned_ = other.loaned_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -299,18 +298,6 @@ namespace LibraryService.Protos {
       }
     }
 
-    /// <summary>Field number for the "loaned" field.</summary>
-    public const int LoanedFieldNumber = 3;
-    private bool loaned_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Loaned {
-      get { return loaned_; }
-      set {
-        loaned_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -328,7 +315,6 @@ namespace LibraryService.Protos {
       }
       if (Id != other.Id) return false;
       if (Title != other.Title) return false;
-      if (Loaned != other.Loaned) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -338,7 +324,6 @@ namespace LibraryService.Protos {
       int hash = 1;
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Title.Length != 0) hash ^= Title.GetHashCode();
-      if (Loaned != false) hash ^= Loaned.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -365,10 +350,6 @@ namespace LibraryService.Protos {
         output.WriteRawTag(18);
         output.WriteString(Title);
       }
-      if (Loaned != false) {
-        output.WriteRawTag(24);
-        output.WriteBool(Loaned);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -387,10 +368,6 @@ namespace LibraryService.Protos {
         output.WriteRawTag(18);
         output.WriteString(Title);
       }
-      if (Loaned != false) {
-        output.WriteRawTag(24);
-        output.WriteBool(Loaned);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -406,9 +383,6 @@ namespace LibraryService.Protos {
       }
       if (Title.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Title);
-      }
-      if (Loaned != false) {
-        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -427,9 +401,6 @@ namespace LibraryService.Protos {
       }
       if (other.Title.Length != 0) {
         Title = other.Title;
-      }
-      if (other.Loaned != false) {
-        Loaned = other.Loaned;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -454,10 +425,6 @@ namespace LibraryService.Protos {
             Title = input.ReadString();
             break;
           }
-          case 24: {
-            Loaned = input.ReadBool();
-            break;
-          }
         }
       }
     #endif
@@ -479,10 +446,6 @@ namespace LibraryService.Protos {
           }
           case 18: {
             Title = input.ReadString();
-            break;
-          }
-          case 24: {
-            Loaned = input.ReadBool();
             break;
           }
         }

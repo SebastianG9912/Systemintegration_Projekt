@@ -44,7 +44,7 @@ app.UseAuthorization();
 
 app.MapGrpcService<BookService>();
 
-app.MapPost("/book", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")] async (Book book, LibraryContext ctx) =>
+app.MapPost("/book", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")] async (Book book, LibraryContext ctx) =>
 {
 
     book.Id = Guid.NewGuid();
@@ -55,7 +55,7 @@ app.MapPost("/book", [Authorize(AuthenticationSchemes = JwtBearerDefaults.Authen
     return Results.Created($"/book/{book.Id}", "Added a new book");
 });
 
-app.MapPut("/book/{id}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")] async (string id, Book book, LibraryContext ctx) =>
+app.MapPut("/book/{id}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")] async (string id, Book book, LibraryContext ctx) =>
 {
 
     var idGuid = new Guid(id);
@@ -68,7 +68,6 @@ app.MapPut("/book/{id}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.Au
     }
 
     bookFromDb.Title = book.Title;
-    bookFromDb.Loaned = book.Loaned;
 
     await ctx.SaveChangesAsync();
 
@@ -76,8 +75,7 @@ app.MapPut("/book/{id}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.Au
 
 });
 
-
-app.MapDelete("/book/{id}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")] async (string id, LibraryContext ctx) =>
+app.MapDelete("/book/{id}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")] async (string id, LibraryContext ctx) =>
 {
     var idGuid = new Guid(id);
 

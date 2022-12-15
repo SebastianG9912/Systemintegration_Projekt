@@ -25,7 +25,6 @@ namespace LibraryService.Services
             {
                 response.Id = book.Id.ToString();
                 response.Title = book.Title;
-                response.Loaned = book.Loaned;
             }
 
             return await Task.FromResult(response);
