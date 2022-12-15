@@ -9,7 +9,6 @@ message BookRequest {
 message BookResponse {
     string id = 1;
     string title = 2;
-    bool loaned = 3;
 }
 
 service GetBookService {

@@ -104,12 +104,12 @@ app.MapPost("/login", async (UserLogin userLogin, UserContext ctx) =>
     return Results.Ok(tokenString);
 });
 
-app.MapGet("/users", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")] async (UserContext ctx) =>
+app.MapGet("/users", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")] async (UserContext ctx) =>
 {
     return await ctx.Users.ToListAsync();
 });
 
-app.MapPut("/user/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")] async (String userId, User user, UserContext ctx) =>
+app.MapPut("/user/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")] async (String userId, User user, UserContext ctx) =>
 {
     var userFromDb = await ctx.Users.FirstOrDefaultAsync(u => u.Id.ToString().Equals(userId));
 
@@ -135,7 +135,7 @@ app.MapPut("/user/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefault
     return Results.Ok($"Updated properties of user with email: {user.Email}");
 });
 
-app.MapPut("/blacklist/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")] async (string userId, UserContext ctx) =>
+app.MapPut("/blacklist/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")] async (string userId, UserContext ctx) =>
 {
     var user = await ctx.Users.FirstOrDefaultAsync(u => u.Id.ToString().Equals(userId));
 

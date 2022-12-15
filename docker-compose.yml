@@ -38,7 +38,7 @@ services:
     image: userservice
     restart: always
     ports:
-      - 3000:80
+      - 5000:80
     depends_on:
       - userdb
 
@@ -46,7 +46,7 @@ services:
     image: loanservice
     restart: always
     ports:
-      - 3001:80
+      - 5002:80
     depends_on:
       - loandb
 
@@ -54,7 +54,7 @@ services:
     image: libraryservice
     restart: always
     ports:
-      - 3002:80
-      - 3005:123
+      - 5010:80
+      - 5001:123
     depends_on:
       - librarydb
