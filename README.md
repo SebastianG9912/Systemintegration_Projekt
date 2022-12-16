@@ -57,7 +57,7 @@ Se alla användare<br>
 Ändra användarinformation<br>
 Blockera inloggning för användare<br>
 
-Användartjänsten har en användarmodell som innehåller id, namn, email. Håller bara koll på användarna.
+Användartjänsten har en användarmodell som innehåller id, email, lösenord, roll och om de är "blacklistade" eller inte. Håller bara koll på användarna.
 
 ## En tjänst (bibliotek) med register över alla böcker:
 
