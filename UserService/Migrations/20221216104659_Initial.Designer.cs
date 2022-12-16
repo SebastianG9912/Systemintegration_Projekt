@@ -12,11 +12,7 @@ using UserService;
 namespace UserService.Migrations
 {
     [DbContext(typeof(UserContext))]
-<<<<<<< HEAD:UserService/Migrations/20221215163929_Initial.Designer.cs
-    [Migration("20221215163929_Initial")]
-=======
-    [Migration("20221215161627_Initial")]
->>>>>>> origin/sheki:UserService/Migrations/20221215161627_Initial.Designer.cs
+    [Migration("20221216104659_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

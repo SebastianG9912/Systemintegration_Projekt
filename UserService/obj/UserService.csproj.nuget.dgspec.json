@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Shkel\\Desktop\\Systemintegration_Projekt-1\\userservice\\UserService.csproj": {}
+    "C:\\Users\\sebgu\\Desktop\\Systemintegration_Projekt\\UserService\\UserService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Shkel\\Desktop\\Systemintegration_Projekt-1\\userservice\\UserService.csproj": {
+    "C:\\Users\\sebgu\\Desktop\\Systemintegration_Projekt\\UserService\\UserService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Shkel\\Desktop\\Systemintegration_Projekt-1\\userservice\\UserService.csproj",
+        "projectUniqueName": "C:\\Users\\sebgu\\Desktop\\Systemintegration_Projekt\\UserService\\UserService.csproj",
         "projectName": "UserService",
-        "projectPath": "C:\\Users\\Shkel\\Desktop\\Systemintegration_Projekt-1\\userservice\\UserService.csproj",
-        "packagesPath": "C:\\Users\\Shkel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Shkel\\Desktop\\Systemintegration_Projekt-1\\userservice\\obj\\",
+        "projectPath": "C:\\Users\\sebgu\\Desktop\\Systemintegration_Projekt\\UserService\\UserService.csproj",
+        "packagesPath": "C:\\Users\\sebgu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sebgu\\Desktop\\Systemintegration_Projekt\\UserService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Shkel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\sebgu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"

@@ -4367,20 +4367,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shkel\\.nuget\\packages\\": {}
+    "C:\\Users\\sebgu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shkel\\Desktop\\Systemintegration_Projekt-1\\libraryservice\\LibraryService.csproj",
+      "projectUniqueName": "C:\\Users\\sebgu\\Desktop\\Systemintegration_Projekt\\LibraryService\\LibraryService.csproj",
       "projectName": "LibraryService",
-      "projectPath": "C:\\Users\\Shkel\\Desktop\\Systemintegration_Projekt-1\\libraryservice\\LibraryService.csproj",
-      "packagesPath": "C:\\Users\\Shkel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shkel\\Desktop\\Systemintegration_Projekt-1\\libraryservice\\obj\\",
+      "projectPath": "C:\\Users\\sebgu\\Desktop\\Systemintegration_Projekt\\LibraryService\\LibraryService.csproj",
+      "packagesPath": "C:\\Users\\sebgu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sebgu\\Desktop\\Systemintegration_Projekt\\LibraryService\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Shkel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\sebgu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"

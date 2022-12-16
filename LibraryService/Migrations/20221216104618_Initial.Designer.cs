@@ -12,11 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryService.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-<<<<<<< HEAD:LibraryService/Migrations/20221215164145_Initial.Designer.cs
-    [Migration("20221215164145_Initial")]
-=======
-    [Migration("20221215161700_Initial")]
->>>>>>> origin/sheki:LibraryService/Migrations/20221215161700_Initial.Designer.cs
+    [Migration("20221216104618_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
