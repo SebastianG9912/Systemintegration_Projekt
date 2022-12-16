@@ -132,7 +132,7 @@ app.MapPut("/user/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefault
 
     await ctx.SaveChangesAsync();
 
-    return Results.Ok($"Updated properties of user with email: {user.Email}");
+    return Results.Ok($"Updated properties of user with id: {userFromDb.Id}");
 });
 
 app.MapPut("/blacklist/{userId}", [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")] async (string userId, UserContext ctx) =>

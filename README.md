@@ -1,5 +1,11 @@
 # Projektuppgift Systemintegration
 
+### Gruppmedlemmar
+
+Shkelqim Cakaj,<br>
+Sebastian Gustafsson,<br>
+Ronni Söderberg<br>
+
 Detta projekt simulerar ett bibliotek och lånetjänst. En användare kan skapa konto och låna böcker. En administratör (Admin) kan lägga till nya böcker och blockera användare från att logga in.
 
 Projektet körs lokalt på docker där varje tjänst har sin egna container och databas. Tjänsterna "loanservice" och "libraryservice" kommunucerar via gRPC och "userservice" generarar en JWT-token då användaren loggat in.
@@ -67,29 +73,34 @@ Bibliotekstjänsten har en bokmodell som innehåller id, titel. Håller bara kol
 ## En tjänst där användare kan låna böcker:
 
 Låna bok (kollar om bok finns och om den är utlånad)<br>
+Lämna tillbaka en bok<br>
+Se alla sina lånade böcker<br>
 
 Lånetjänsten har en modell som kopplar ihop användare med bok, innehåller användarens id och bokens id. Håller bara koll på vilka böcker en användare lånat.
 
 ## Endpoints
 
-Alla endpoints testas via Postman
+Alla endpoints testas via Postman.<br>
+Alla enpoints försedda med \* kräver att JWT-token skickas med i headern.
 
 ### UserService
 
 POST http://localhost:5000/register (kräver User-objekt i json format i body)<br>
 POST http://localhost:5000/login (kräver UserLogin-objekt i json format i body)<br>
-GET http://localhost:5000/users<br>
-PUT http://localhost:5000/user/{userId}<br>
-PUT http://localhost:5000/blacklist/{userId}<br>
+*GET http://localhost:5000/users<br>
+*PUT http://localhost:5000/user/{userId}<br>
+\*PUT http://localhost:5000/blacklist/{userId}<br>
 
 ### LibraryService
 
-POST http://localhost:5001/book (kräver Book-objekt i json format i body)<br>
-PUT http://localhost:5001/book/{bookId}<br>
-DELETE http://localhost:5001/book/{bookId}<br>
+*POST http://localhost:5001/book (kräver Book-objekt i json format i body)<br>
+*PUT http://localhost:5001/book/{bookId}<br>
+\*DELETE http://localhost:5001/book/{bookId}<br>
 GET http://localhost:5001/book/{bookId}<br>
 GET http://localhost:5001/books<br>
 
 ### LoanService
 
-POST http://localhost:5002/loan/{bookId}<br>
+*POST http://localhost:5002/loan/{bookId}<br>
+*POST http://localhost:5002/return/{bookId}<br>
+\*GET http://localhost:5002/loans<br>
